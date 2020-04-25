@@ -1,0 +1,30 @@
+//Приклад сортування вставкою на Сі
+void InsertionSort(int n, int mass[])
+{
+    int newElement, location;
+ 
+    for (int i = 1; i < n; i++)
+    {
+        newElement = mass[i];
+        location = i - 1;
+        while(location >= 0 && mass[location] > newElement)
+        {
+            mass[location+1] = mass[location];
+            location = location - 1;
+        }
+        mass[location+1] = newElement;
+    }
+}
+//Сортування Шела а Сі
+void ShellSort (int[] array, int size)               
+{
+	int step, i, j, tmp;
+	for (step = size / 2; step > 0; step /= 2)
+		for (i = step; i < size; i++) 
+			for (j = i - step; j >= 0 && array[j] > array[j + step]; j -= step)
+			{
+				tmp = array[j];
+				array[j] = array[j + step];
+				array[j + step] = tmp;
+			}
+}
