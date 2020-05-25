@@ -1,30 +1,78 @@
-//Приклад сортування вставкою на Сі
-void InsertionSort(int n, int mass[])
+//Приклад сортування вставкою на Сі 
+void InsertionSort(int n, int arr[])
 {
-    int newElement, location;
+    int new_element, loc;
  
     for (int i = 1; i < n; i++)
     {
-        newElement = mass[i];
-        location = i - 1;
-        while(location >= 0 && mass[location] > newElement)
+        new_element = arr[i];
+        loc = i - 1;
+        while(loc >= 0 && arr[loc] > new_element)
         {
-            mass[location+1] = mass[location];
-            location = location - 1;
+            arr[loc+1] = arr[loc];
+            loc = loc - 1;
         }
-        mass[location+1] = newElement;
+        arr[loc+1] = new_element;
     }
 }
-//Сортування Шела а Сі
-void ShellSort (int[] array, int size)               
+int main()
 {
-	int step, i, j, tmp;
-	for (step = size / 2; step > 0; step /= 2)
-		for (i = step; i < size; i++) 
-			for (j = i - step; j >= 0 && array[j] > array[j + step]; j -= step)
+   
+    int n;
+    printf("Input a number of elements of massive: ");
+    scanf("%d", &n);
+    arr[n];
+   
+    for (int i = 0; i < n; i++){
+    	printf("arr[%d]",i);
+        scanf("%d", &arr[i]);
+    }
+    InsertionSort(n, arr);
+    
+    for (int i = 0; i < n; i++){
+        printf("%d ", arr[i]);
+    }		
+    printf("\n");
+    return 0;
+}
+
+
+
+
+
+
+//Сортування Шела а Сі 
+void ShellSort (int arr[], int n)               
+ {
+	int tmp;
+	for (int k = n / 2; k > 0; k /= 2){
+		for (int i = k; i < n; i++) {
+			for (int j = i - k; j >= 0 && arr[j] > arr[j + k]; j -= k)
 			{
-				tmp = array[j];
-				array[j] = array[j + step];
-				array[j + step] = tmp;
+				tmp = arr[j];
+				arr[j] = arr[j + k];
+				arr[j + k] = tmp;
 			}
+		}
+	}	
+}
+int main()
+{
+   
+    int n;
+    printf("Input a number of elements of massive: ");
+    scanf("%d", &n);
+    arr[n];
+   
+    for (int i = 0; i < n; i++){
+    	printf("arr[%d]",i);
+        scanf("%d", &arr[i]);
+    }
+    ShellSort(n, arr);
+    
+    for (int i = 0; i < n; i++){
+        printf("%d ", arr[i]);
+    }		
+    printf("\n");
+    return 0;
 }
