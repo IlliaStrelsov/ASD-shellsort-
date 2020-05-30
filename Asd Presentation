@@ -1,5 +1,5 @@
 //Приклад сортування вставкою на Сі 
-void InsertionSort(int n, int arr[])
+void InsertionSort(int n, int arr[])//сортування по зростанню
 {
     int new_element, k;
  
@@ -7,12 +7,12 @@ void InsertionSort(int n, int arr[])
     {
         new_element = arr[i];
         k = i - 1;
-        while(l >= 0 && arr[k] > new_element)
+        while(l >= 0 && arr[k] > new_element)// 1 елемент масиву - уже відсортована послідовність , берем 2 і 1 елемент , порівнюємо їх і якщо порядок порушений то   зсуваємо 1 елемент вправо на 1 ,далі на кожній ітерації беремо кожен елемент і порівнюємо з попередніми починаючи з кінця. 
         {
-            arr[k+1] = arr[k];
+            arr[k+1] = arr[k];//якщо порядок не правильний
             k--;
         }
-        arr[k+1] = new_element;
+        arr[k+1] = new_element;// масив буде збільшуватися кожну ітерацію починаючи з 1 елемента який був першим , поки не стане розсірністю n
     }
 }
 int main()
@@ -42,10 +42,10 @@ int main()
 
 
 //Сортування Шела а Сі 
-void ShellSort (int arr[], int n)               
+void ShellSort (int arr[], int n)  //n - кількість елементів масива             
  {
 	int tmp;
-	for (int k = n / 2; k > 0; k /= 2){
+	for (int k = n / 2; k > 0; k /= 2){ //k - відстань між елементами яка постійно зменшується поки не стане 1
 		for (int i = k; i < n; i++) {
 			for (int j = i - k; j >= 0 && arr[j] > arr[j + k]; j -= k)
 			{
